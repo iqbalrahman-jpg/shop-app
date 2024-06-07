@@ -1,0 +1,43 @@
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.logo-container img {
+    height: 100px; /* Adjust the height of the logo as needed */
+    margin-right: 70px;
+}
+.logo-container span {
+    font-size: 20px; /* Adjust the font size as needed */
+    text-align: left;
+}
+
+.card-img-top {
+    height: 200px; /* Adjust as needed */
+    object-fit: cover; /* Maintain aspect ratio */
+}
+.btn-min-width {
+    min-width: 120px; /* Adjust the value as needed */
+}
+.category-card.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.card {
+    border: 1px solid #dee2e6; /* Ensure border is applied */
+    border-radius: 0.25rem; /* Ensure border-radius is applied */
+}
+.card-body {
+    padding: 1.25rem;
+}
+
+.modal-img {
+    max-width: 500px;
+}
+
+.bag-img {
+    max-width: 50px;
+    height: auto;
+}
