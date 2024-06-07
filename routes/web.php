@@ -33,6 +33,13 @@ Route::get("/cart", [CartController::class, "viewCart"])->name("cart");
 Route::post("/cart/checkout", [CartController::class, "checkout"])->name(
     "cart.checkout"
 );
+Route::post("/cart/update/{id}", [CartController::class, "update"])->name(
+    "cart.update"
+);
+Route::post("/cart/remove/{id}", [CartController::class, "remove"])->name(
+    "cart.remove"
+);
+
 Route::get("/invoice/{id}", [CartController::class, "generateInvoice"])->name(
     "invoice"
 );

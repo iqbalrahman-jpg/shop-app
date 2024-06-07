@@ -26,16 +26,23 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::where("status", 1)->get();
-        $products = Product::where("status", 1)->with("category")->get();
+        $products = Product::where("status", 1)
+            ->where("stock", ">", 0)
+            ->with("category")
+            ->get();
         return view("home", compact("categories", "products"));
     }
 
     public function filterByCategory($id)
     {
         if ($id == 0) {
-            $products = Product::where("status", 1)->with("category")->get();
+            $products = Product::where("status", 1)
+                ->where("stock", ">", 0)
+                ->with("category")
+                ->get();
         } else {
             $products = Product::where("status", 1)
+                ->where("stock", ">", 0)
                 ->where("category_id", $id)
                 ->with("category")
                 ->get();

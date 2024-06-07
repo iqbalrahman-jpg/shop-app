@@ -18,7 +18,7 @@
                                     <p class="card-text px-2">{{ format_price($product->price) }}</p>
                                     <div class="d-flex justify-content-around">
                                         <button class="btn btn-primary btn-min-width view-btn" data-id="{{ $product->id }}">View</button>
-                                        <button class="btn btn-success btn-min-width">Buy</button>
+                                        <button class="btn btn-success btn-min-width view-btn" data-id="{{ $product->id }}">Buy</button>
                                     </div>
                                 </div>
                             </div>

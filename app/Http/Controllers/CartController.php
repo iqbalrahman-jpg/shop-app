@@ -44,6 +44,38 @@ class CartController extends Controller
         return view("cart", compact("cartItems", "totalPrice"));
     }
 
+    public function update(Request $request, $id)
+    {
+        $cartItem = Cart::find($id);
+        $quantity = $request->input("quantity");
+
+        if ($quantity > $cartItem->product->stock) {
+            return redirect()
+                ->route("cart")
+                ->with(
+                    "error",
+                    "Not enough stock for " . $cartItem->product->name
+                );
+        }
+
+        $cartItem->quantity = $quantity;
+        $cartItem->save();
+
+        return redirect()
+            ->route("cart")
+            ->with("success", "Cart updated successfully!");
+    }
+
+    public function remove($id)
+    {
+        $cartItem = Cart::find($id);
+        $cartItem->delete();
+
+        return redirect()
+            ->route("cart")
+            ->with("success", "Product removed from cart successfully!");
+    }
+
     public function checkout(Request $request)
     {
         $userId = Auth::id();
